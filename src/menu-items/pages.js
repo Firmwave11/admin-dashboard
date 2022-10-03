@@ -11,23 +11,52 @@ const icons = {
 
 const pages = {
     id: 'authentication',
-    title: 'Authentication',
+    title: 'Transaction',
     type: 'group',
     children: [
         {
-            id: 'login1',
-            title: 'Login',
+            id: 'goodReceive',
+            title: 'Goods Receive',
             type: 'item',
-            url: '/login',
-            icon: icons.LoginOutlined
+            url: '/goodReceive/default',
+            icon: icons.ProfileOutlined
         },
         {
-            id: 'register1',
-            title: 'Register',
+            id: 'GoodsIssue',
+            title: 'Goods Issue',
             type: 'item',
-            url: '/register',
+            url: '/goodReceive/default',
             icon: icons.ProfileOutlined
-        }
+        },
+        {
+            id: 'ReturnGR',
+            title: 'Return GR',
+            type: 'item',
+            url: '/goodReceive/default',
+            icon: icons.ProfileOutlined
+        },
+        {
+            id: 'ReturnGI',
+            title: 'Return GI',
+            type: 'item',
+            url: '/goodReceive/default',
+            icon: icons.ProfileOutlined
+        },
+        {
+            id: 'Service',
+            title: 'Product Service',
+            type: 'item',
+            url: '/goodReceive/default',
+            icon: icons.ProfileOutlined
+        },
+        {
+            id: 'ProductDisposal',
+            title: 'Product Disposal',
+            type: 'item',
+            url: '/goodReceive/default',
+            icon: icons.ProfileOutlined
+        },
+        
     ]
 };
 

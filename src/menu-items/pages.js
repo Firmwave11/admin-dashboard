@@ -56,6 +56,13 @@ const pages = {
             url: '/goodReceive/default',
             icon: icons.ProfileOutlined
         },
+        {
+            id: 'Report',
+            title: 'Report',
+            type: 'item',
+            url: '/goodReceive/default',
+            icon: icons.ProfileOutlined
+        },
         
     ]
 };

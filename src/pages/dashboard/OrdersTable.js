@@ -11,21 +11,21 @@ import NumberFormat from 'react-number-format';
 // project import
 import Dot from 'components/@extended/Dot';
 
-function createData(trackingNo, name, fat, carbs, protein) {
-    return { trackingNo, name, fat, carbs, protein };
+function createData(trackingNo, name, fat,location, carbs, protein) {
+    return { trackingNo, name, fat, location, carbs, protein };
 }
 
 const rows = [
-    createData(84564564, 'Camera Lens', 40),
-    createData(98764564, 'Laptop', 300),
-    createData(98756325, 'Mobile', 355),
-    createData(98652366, 'Handset', 50),
-    createData(13286564, 'Computer Accessories', 100),
-    createData(86739658, 'TV', 99),
-    createData(13256498, 'Keyboard', 125),
-    createData(98753263, 'Mouse', 89),
-    createData(98753275, 'Desktop', 185),
-    createData(98753291, 'Chair', 100)
+    createData(84564564, 'Camera Lens', 40,'Gudang A'),
+    createData(98764564, 'Laptop', 300,'Gudang C'),
+    createData(98756325, 'Mobile', 355,'Gudang D'),
+    createData(98652366, 'Handset', 50,'Gudang B'),
+    createData(13286564, 'Computer Accessories', 100,'Gudang A'),
+    createData(86739658, 'TV', 99,'Gudang C'),
+    createData(13256498, 'Keyboard', 124,'Gudang A'),
+    createData(98753263, 'Mouse', 89,'Gudang B'),
+    createData(98753275, 'Desktop', 185,'Gudang D'),
+    createData(98753291, 'Chair', 100,'Gudang A')
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -74,6 +74,12 @@ const headCells = [
         align: 'right',
         disablePadding: false,
         label: 'Quantity'
+    },
+    {
+        id: 'location',
+        align: 'right',
+        disablePadding: false,
+        label: 'Location'
     }
 ];
 
@@ -173,7 +179,7 @@ OrderTableHead.propTypes = {
 
 // ==============================|| ORDER TABLE - STATUS ||============================== //
 
-const OrderStatus = ({ status }) => {
+const OrderStatus = ({ status, openEdit }) => {
     let color;
     let title;
 
@@ -199,7 +205,7 @@ const OrderStatus = ({ status }) => {
         <Stack direction="row" spacing={1} alignItems="center">
             {/* <Dot color={color} />
             <Typography>{title}</Typography> */}
-            <Button>Edit</Button>
+            <Button onClick={openEdit}>Edit</Button>
             <Button variant="outlined" color="error">
                 Delete
             </Button>
@@ -287,8 +293,9 @@ export default function OrderTable(props) {
                                     </TableCell>
                                     <TableCell align="left">{row.name}</TableCell>
                                     <TableCell align="right">{row.fat}</TableCell>
+                                    <TableCell align="right">{row.location}</TableCell>
                                     <TableCell align="left">
-                                        <OrderStatus status={row.carbs} />
+                                        <OrderStatus status={row.carbs} openEdit={props.openEdit} />
                                     </TableCell>
                                     <TableCell align="right">
                                         <NumberFormat value={row.protein} displayType="text" thousandSeparator prefix="$" />
